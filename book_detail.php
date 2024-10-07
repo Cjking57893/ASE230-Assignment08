@@ -1,5 +1,7 @@
 <?php 
-    include 'lib/csv_functions.php'
+    include 'lib\file_reading_functions.php';
+    include 'lib\file_writing_functions.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +42,7 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class=" sb-sidenav-menu">
                         <div class="nav sticky-top">
-                            <a class="nav-link mb-3" href="index.html">
+                            <a class="nav-link mb-3" href="index.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Books & Clubs
                             </a>
@@ -51,17 +53,17 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">My Books</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">My Clubs</a>
+                                    <a class="nav-link" href="">My Books</a>
+                                    <a class="nav-link" href="">My Clubs</a>
                                 </nav>
                             </div>
                             
-                            <a class="nav-link mt-3" href="charts.html">
+                            <a class="nav-link mt-3" href="">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Account Info
                             </a>
 
-                            <a class="nav-link mt-3" href="charts.html">
+                            <a class="nav-link mt-3" href="">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Admin Page
                             </a>
@@ -75,7 +77,28 @@
             </div>
             <div>
                 <main>
-            
+                    <?php 
+                        read_book_details('data/book_list.json', $_GET['title']);
+                        //check if button is pressed, adds item to the user's list
+                        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['book_title'])) {
+                            $book_title = $_POST['book_title'];
+                            $read_path = 'data/book_list.json'; // Path to book list
+                            $write_path = 'data/users_book_list.json'; // Path to user's book list
+                    
+                            // Call the function to write the book to the user's list
+                            write_book_to_user_list($read_path, $write_path, $book_title);
+                        }
+                        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['book_remove'])) {
+                            $book_title = $_POST['book_remove'];
+                            $write_path = 'data/users_book_list.json'; // Path to user's book list
+                    
+                            // Call the function to write the book to the user's list
+                            delete_book_from_user_list($write_path, $book_title);
+                        }
+                        
+                    ?>
+                    <button class="mt-2 ms-2 btn btn-dark" onclick="location.href='index.php'">Back To List</button>
+                    <div style="height: 100vh"></div>
                     
                 </main>
                 <footer class="py-4 bg-light mt-auto">
