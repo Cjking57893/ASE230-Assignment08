@@ -1,6 +1,6 @@
 <?php 
-    include 'lib\file_reading_functions.php';
-    include 'lib\file_writing_functions.php';
+    include 'lib\admin_functions\file_reading_functions_admin.php';
+    include 'lib\admin_functions\file_writing_functions_admin.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,7 +71,7 @@
                             </thead>
                             <tbody>
                                 <?php 
-                                    read_book_list('data/book_list.json');
+                                    read_book_list_admin('data/book_list.json');
                                     //check if user clicks button to add a book to their list, and call funciton to add it to the list
                                     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['book_title'])) {
                                         $book_title = $_POST['book_title'];
@@ -91,7 +91,7 @@
                         <h2 class="text-start">Check Out Our Clubs</h2>
                         <div class="row ">
                             <?php
-                                read_club_list('data/book_club_list.json');
+                                read_club_list_admin('data/book_club_list.json');
                                 //check if user clicks button to join club, and call funciton to add it to the list
                                 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['club_name'])) {
                                     $name = $_POST['club_name'];
