@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Index</title>
+        <title>Create Book</title>
         <link href="bootstrap_resources/css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
@@ -69,49 +69,31 @@
             </div>
             <div>
                 <main>
-                    <!--Section for displaying a list of books-->
-                    <div class="container-fluid px-4">
-                        <table class="table">
-                            <thead>
-                              <tr>
-                                <h2 class="mt-4 text-start">Check Out Our Books</h2>
-                              </tr>
-                            </thead>
-                            <tbody>
-                                <?php 
-                                    read_book_list_admin('data/book_list.json');
-                                    //check if user clicks button to add a book to their list, and call funciton to add it to the list
-                                    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['book_title'])) {
-                                        $book_title = $_POST['book_title'];
-                                        $read_path = 'data/book_list.json'; // Path to book list
-                                        $write_path = 'data/users_book_list.json'; // Path to user's book list
-                                
-                                        // Call the function to write the book to the user's list
-                                        write_book_to_user_list($read_path, $write_path, $book_title);
-                                    }
-                                ?>
-                            </tbody>
-                          </table>
-                    </div>
-                    
-                    <!--Section for displaying list of book clubs-->
-                    <div class="container-fluid px-4 text-center mt-5">
-                        <h2 class="text-start">Check Out Our Clubs</h2>
-                        <div class="row ">
-                            <?php
-                                read_club_list_admin('data/book_club_list.json');
-                                //check if user clicks button to join club, and call funciton to add it to the list
-                                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['club_name'])) {
-                                    $name = $_POST['club_name'];
-                                    $read_path = 'data/book_club_list.json'; // Path to book list
-                                    $write_path = 'data/users_club_list.json'; // Path to user's book list
-                            
-                                    // Call the function to write the book to the user's list
-                                    write_club_to_user_list($read_path, $write_path, $name);
-                                }
-                            ?>
-                            
-                        </div>
+                    <!-- Form for creating books -->
+                    <div class="container mx-auto">
+                        <h2 class="mt-3 text-center">Create Book</h2>
+                        <form>
+                            <!-- Book Title Input -->
+                            <div class="mb-3">
+                                <label for="bookTitle" class="form-label">Book Title</label>
+                                <input type="text" class="form-control" id="bookTitle" placeholder="Enter the book title">
+                            </div>
+                            <!-- Author Input -->
+                            <div class="mb-3">
+                                <label for="bookAuthor" class="form-label">Author</label>
+                                <input type="text" class="form-control" id="bookAuthor" placeholder="Enter the author">
+                            </div>
+                            <!-- Year Input -->
+                            <div class="mb-3">
+                                <label for="yearPublished" class="form-label">Year</label>
+                                <input type="number" class="form-control" id="yearPublished" min="1000" max="2099" value="2024" step="1">
+                            </div>
+                            <!-- Description Input -->
+                            <div class="mb-3">
+                                <label for="bookDescription" class="form-label">Description</label>
+                                <textarea class="form-control" id="bookDescription" rows="3" placeholder="Write a short description"></textarea>
+                            </div>
+                        </form>
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
