@@ -111,3 +111,32 @@
                         file_put_contents($write_path, json_encode($existing_user_clubs, JSON_PRETTY_PRINT));
                     }
             }
+            function delete_club_from_user_list($write_path, $club_title): void {
+                // Check if the user's book list exists
+                if (file_exists($write_path)) {
+                    // Read existing user book list
+                    $existing_user_club = json_decode(file_get_contents($write_path), true);
+                    
+                    // Create a new array to hold the remaining books
+                    $updated_user_clubs = [];
+                    $book_found = false; // Flag to track if the book was found
+            
+                    // Loop through the existing user books
+                    $club_found = false;
+                    foreach ($existing_user_club as $user_club) {
+                        // If the book title matches, we skip adding it to the new array
+                        if ($user_club['name'] === $club_title) {
+                            $club_found = true; // Mark that we found the book
+                            continue; // Skip this book
+                        }
+                        // Add other books to the updated list
+                        $updated_user_clubs[] = $user_club;
+                    }
+            
+                    // If the book was found, update the file
+                    if ($club_found) {
+                        // Write the updated user book list back to the file
+                        file_put_contents($write_path, json_encode($updated_user_clubs, JSON_PRETTY_PRINT));
+                    }
+                }
+            }
