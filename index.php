@@ -65,10 +65,14 @@
                                 Account Info
                             </a>
 
-                            <a class="nav-link mt-3" href="">
+                            <?php
+                            if(isset($_SESSION['username']) && $_SESSION['username'] === 'Admin'){
+                                echo '<a class="nav-link mt-3" href="admin_page.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Admin Page
-                            </a>
+                            </a>';
+                            }
+                        ?>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">

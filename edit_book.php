@@ -106,15 +106,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="">My Books</a>
-                                    <a class="nav-link" href="">My Clubs</a>
+                                    <a class="nav-link" href="my_books.php">My Books</a>
+                                    <a class="nav-link" href="my_clubs.php">My Clubs</a>
                                 </nav>
                             </div>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Username
+                        <div class=\"small\">Logged in as:</div>
+                            Admin
                     </div>
                 </nav>
             </div>

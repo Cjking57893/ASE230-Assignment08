@@ -64,15 +64,23 @@
                                 Account Info
                             </a>
 
-                            <a class="nav-link mt-3" href="">
+                            <a class="nav-link mt-3" href="admin_page.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Admin Page
                             </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Username
+                        <?php
+                            if(isset($_SESSION['username'])){
+                                echo "<div class=\"small\">Logged in as:</div>
+                                $_SESSION[username]";
+                            }
+                            else{
+                                echo "<div class=\"small\">You are not logged in</div>";
+                            }
+                        ?>
+                        
                     </div>
                 </nav>
             </div>

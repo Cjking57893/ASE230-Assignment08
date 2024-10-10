@@ -64,15 +64,23 @@
                                 Account Info
                             </a>
 
-                            <a class="nav-link mt-3" href="">
+                            <a class="nav-link mt-3" href="admin_page.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Admin Page
                             </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Username
+                        <?php
+                            if(isset($_SESSION['username'])){
+                                echo "<div class=\"small\">Logged in as:</div>
+                                $_SESSION[username]";
+                            }
+                            else{
+                                echo "<div class=\"small\">You are not logged in</div>";
+                            }
+                        ?>
+                        
                     </div>
                 </nav>
             </div>
@@ -80,11 +88,11 @@
                 <main>
                     <!--this is where the functions to show the books in my list go -->
                     <?php
-                        read_my_book_list('data/users_book_list.json');
+                        read_my_book_list("data/$_SESSION[username]_book_list.json");
                         //check if user clicks button to join club, and call funciton to add it to the list
                         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['book_remove'])) {
                             $book_title = $_POST['book_remove'];
-                            $write_path = 'data/users_book_list.json'; // Path to user's book list
+                            $write_path = "data/$_SESSION[username]_book_list.json"; // Path to user's book list
                     
                             // Call the function to write the book to the user's list
                             delete_book_from_user_list($write_path, $book_title);

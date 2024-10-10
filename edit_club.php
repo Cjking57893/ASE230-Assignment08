@@ -103,8 +103,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
             </div>
             <div class="sb-sidenav-footer">
-                <div class="small">Logged in as:</div>
-                Username
+                        <div class=\"small\">Logged in as:</div>
+                            Admin
             </div>
         </nav>
     </div>

@@ -10,3 +10,5 @@ example;Tyler;White;exxample@gmail.com;$2y$10$oaVHhG.ddHIt1lHh68u4K.RWniSv5.B1B8
 examplee;Tyler;White;examplee@gmail.com;$2y$10$NcIrYRwvxekQfIeqP867V.E.RhJjRofgCSw/4BRuR2JxVvDBMzJQS
 exampleee;Tyler;White;eggsample@gmail.com;$2y$10$U1rUB5GR5eDB7FRLjlVRmutnQOJVJygUywgVy8TYkk.EZ0tcPrBiq
 alanna;alanna;evans;123@gmail.com;$2y$10$/MaxLTZE4cEPFySHBFb.Iu82sYvcfGMy4ih/slqR7VYrh7ejvZ3xW
+Admin;Ad;Min;admin@gmail.com;$2y$10$PMm/Md8cmQUPooGejFlJged6MTXdFeN2m.w7X0bJiS7qdgQ4kHU8.
+test;test;test;test@gmail.com;$2y$10$vD.5CKlsVoexCRt27vZjz.SFloTXsnCu8nE53BqVmmQ44Cas2KGc2

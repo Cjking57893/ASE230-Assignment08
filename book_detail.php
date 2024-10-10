@@ -53,25 +53,33 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="">My Books</a>
-                                    <a class="nav-link" href="">My Clubs</a>
+                                    <a class="nav-link" href="my_books.php">My Books</a>
+                                    <a class="nav-link" href="my_clubs.php">My Clubs</a>
                                 </nav>
                             </div>
                             
-                            <a class="nav-link mt-3" href="">
+                            <a class="nav-link mt-3" href="account_info.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Account Info
                             </a>
 
-                            <a class="nav-link mt-3" href="">
+                            <a class="nav-link mt-3" href="admin_page.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Admin Page
                             </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Username
+                        <?php
+                            if(isset($_SESSION['username'])){
+                                echo "<div class=\"small\">Logged in as:</div>
+                                $_SESSION[username]";
+                            }
+                            else{
+                                echo "<div class=\"small\">You are not logged in</div>";
+                            }
+                        ?>
+                        
                     </div>
                 </nav>
             </div>
