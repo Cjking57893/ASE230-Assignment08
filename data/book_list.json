@@ -55,13 +55,13 @@
     },
     {
         "title": "One Hundred Years of Solitude",
-        "author": "Gabriel García Márquez",
+        "author": "Gabriel Garc\u00eda M\u00e1rquez",
         "year": 1967,
-        "description": "A multi-generational story that explores the Buendía family's experiences in the fictional town of Macondo."
+        "description": "A multi-generational story that explores the Buend\u00eda family's experiences in the fictional town of Macondo."
     },
     {
         "title": "Jane Eyre",
-        "author": "Charlotte Brontë",
+        "author": "Charlotte Bront\u00eb",
         "year": 1847,
         "description": "A novel that follows the life of an orphaned girl as she grows up faces adversity and finds love."
     },
@@ -84,7 +84,7 @@
         "description": "A fantasy novel about the adventures of Bilbo Baggins a hobbit who embarks on a quest with a group of dwarves."
     },
     {
-        "title": "Les Misérables",
+        "title": "Les Mis\u00e9rables",
         "author": "Victor Hugo",
         "year": 1862,
         "description": "A sweeping historical novel that explores themes of justice redemption and love through the lives of various characters in France."
@@ -141,7 +141,7 @@
         "title": "The Secret Garden",
         "author": "Frances Hodgson Burnett",
         "year": 1911,
-        "description": "A children’s novel about a young girl who discovers a neglected garden and transforms it with the help of new friends."
+        "description": "A children\u2019s novel about a young girl who discovers a neglected garden and transforms it with the help of new friends."
     },
     {
         "title": "Life of Pi",

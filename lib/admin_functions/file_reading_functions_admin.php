@@ -21,7 +21,7 @@ function read_book_list_admin($file_path): void{
                         <td class=\"align-middle\">
                             <form method=\"post\">
                                 <input type=\"hidden\" name=\"book_title\" value=\"" . htmlspecialchars($book['title']) . "\">
-                                <input class=\"btn btn-secondary\" name=\"edit\" type=\"submit\" value=\"Edit\">
+                                <a href=\"edit_book.php?book_title=" . urlencode($book['title']) . "\" class=\"btn btn-secondary\" style=\"display:inline-block;\">Edit</a>
                                 <input class=\"btn btn-danger\" name=\"delete\" type=\"submit\" value=\"Delete\">
                             </form>
                         </td>        
@@ -53,7 +53,7 @@ function read_club_list_admin($file_path){
                                     <p class=\"card-text\">$club[description]</p>
                                     <form method=\"post\">
                                         <input type=\"hidden\" name=\"club_name\" value=\"" . htmlspecialchars($club['name']) . "\">
-                                        <input class=\"btn btn-secondary\" type=\"submit\" value=\"Edit\">
+                                        <a href=\"edit_club.php?club_name=" . urlencode($club['name']) . "\" class=\"btn btn-secondary\" style=\"display:inline-block;\">Edit</a>
                                     </form>
                                     <form method=\"post\">
                                         <input type=\"hidden\" name=\"club_name\" value=\"" . htmlspecialchars($club['name']) . "\">

@@ -41,7 +41,7 @@ function edit_book($book_title, $new_book_title, $new_book_author, $new_book_yea
 }
 
 function edit_club($club_name, $new_club_name, $new_club_leader, $new_club_description) {
-    $filePath = '../../data/book_club_list.json'; 
+    $filePath = 'data/book_club_list.json'; 
 
     // Reading the JSON file and decoding it into a PHP array
     $jsonData = file_get_contents($filePath);
