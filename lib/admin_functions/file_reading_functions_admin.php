@@ -15,7 +15,7 @@ function read_book_list_admin($file_path): void{
             '<br>';
             echo "<tr>
                     <th scope=\"row\"><img src=\"images\book.jpg\" alt=\"Book\" style=\"width: 100px; height: 100px;\"></th>
-                        <td class=\"align-middle\"><a href=\"book_detail.php?title=$book[title]\">$book[title]</a></td>
+                        <td class=\"align-middle\"><a href=\"book_detail_admin.php?title=$book[title]\">$book[title]</a></td>
                         <td class=\"align-middle\">$book[author]</td>
                         <td class=\"align-middle\">$book[year]</td>
                         <td class=\"align-middle\">
@@ -62,6 +62,23 @@ function read_club_list_admin($file_path){
                                 </div>
                             </div>
                         </div>";
+        }
+    }
+}
+
+function read_book_details_admin($file_path, $book_title){
+$content = file_get_contents($file_path);
+    //decode json file and store it
+    $json_array = json_decode($content,true);
+        
+    //write html to page
+    foreach($json_array as $book){
+        if($book['title'] == $book_title){
+            echo "<h1 class=\"mt-2 ms-2\">$book[title]</h1>
+                    <p class=\"mt-2 ms-2\"> Written By: $book[author]</p>
+                    <p class=\"mt-2 ms-2\">Published in: $book[year]</p>
+                    <p class=\"mt-2 ms-2\"> $book[description]</p>";
+            break;
         }
     }
 }

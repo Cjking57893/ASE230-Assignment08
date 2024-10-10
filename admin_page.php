@@ -7,7 +7,7 @@
         // Handling book deletion
         if (isset($_POST['book_title'])) {
             $book_title = $_POST['book_title'];
-            delete_book($book_title); // Call the book delete function
+            delete_book($book_title);
 
             // After deleting, reload the page
             header("Location: " . $_SERVER['PHP_SELF']);
@@ -17,7 +17,7 @@
         // Handling club deletion
         if (isset($_POST['club_name'])) {
             $club_name = $_POST['club_name'];
-            delete_club($club_name); // Call the club delete function
+            delete_club($club_name);
 
             // After deleting, reload the page
             header("Location: " . $_SERVER['PHP_SELF']);
@@ -33,7 +33,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Index</title>
+        <title>Admin Page</title>
         <link href="bootstrap_resources/css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
@@ -64,17 +64,21 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class=" sb-sidenav-menu">
                         <div class="nav sticky-top">
-                            <a class="nav-link" href="index.php">
+                            <a class="nav-link" href="admin_page.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Books & Clubs
                             </a>
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="create_book.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Create Book
                             </a>
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="create_club.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Create Club
+                            </a>
+                            <a class="nav-link" href="index.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Back to home
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">

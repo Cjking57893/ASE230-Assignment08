@@ -10,7 +10,7 @@ $club_description = '';
 
 // Check if the club name is passed via the query string
 if (isset($_GET['club_name'])) {
-    $club_name = urldecode($_GET['club_name']); // Decode the club name from the URL
+    $club_name = urldecode($_GET['club_name']);
 
     // Read the club list from the JSON file
     $file_path = 'data/book_club_list.json';
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Update the club information in the JSON file
     edit_club(urldecode($_GET['club_name']), $new_club_name, $new_club_leader, $new_club_description);
 
-    // Redirect back to a confirmation or main page after submission
+    // Redirect back to main page after submission
     header('Location: admin_page.php');
     exit;
 }
@@ -79,39 +79,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </li>
             </ul>
         </nav>
-        <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                    <div class=" sb-sidenav-menu">
-                        <div class="nav sticky-top">
-                            <a class="nav-link" href="index.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Books & Clubs
-                            </a>
-                            <a class="nav-link" href="">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Create Book
-                            </a>
-                            <a class="nav-link" href="">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Create Club
-                            </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="">My Books</a>
-                                    <a class="nav-link" href="">My Clubs</a>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Username
-                    </div>
-                </nav>
+<div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <div class="sb-sidenav-menu">
+                <div class="nav sticky-top">
+                    <a class="nav-link" href="admin_page.php">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Books & Clubs
+                    </a>
+                    <a class="nav-link" href="create_book.php">
+                        <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                        Create Book
+                    </a>
+                    <a class="nav-link" href="create_club.php">
+                        <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                        Create Club
+                    </a>
+                    <a class="nav-link" href="index.php">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Back to home
+                    </a>
+                </div>
             </div>
-            <div>
-        <main>
+            <div class="sb-sidenav-footer">
+                <div class="small">Logged in as:</div>
+                Username
+            </div>
+        </nav>
+    </div>
+    <div>
+        <main class="vh-100">
+            <!-- Form for editing clubs -->
             <div class="container mx-auto">
                 <h2 class="mt-3 text-center">Edit Club</h2>
                 <form method="post">
@@ -136,7 +135,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </form>
             </div>
         </main>
+        <footer class="py-4 bg-light mt-auto">
+            <div class="container-fluid px-4">
+                <div class="d-flex align-items-center justify-content-between small">
+                    <div class="text-muted">Alanna Evans, Chris King, Cody King, Tyler White - 2024</div>
+                    <div>
+                        <a href="#">Privacy Policy</a>
+                        &middot;
+                        <a href="#">Terms &amp; Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="bootstrap_resources/js/scripts.js"></script>
 </body>
 </html>

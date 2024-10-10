@@ -12,7 +12,7 @@ $book_description = '';
 
 // Check if the book title is passed via the query string
 if (isset($_GET['book_title'])) {
-    $book_title = urldecode($_GET['book_title']); // Decode the book title from the URL
+    $book_title = urldecode($_GET['book_title']);
 
     // Read the book list from the JSON file
     $file_path = 'data/book_list.json';
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Call the edit_book function to save the updated book information
     edit_book(urldecode($_GET['book_title']), $new_book_title, $new_book_author, $new_book_year, $new_book_description);
 
-    // Redirect back to a confirmation or main page after submission
+    // Redirect back to a main page after submission
     header('Location: admin_page.php');
     exit;
 }
@@ -88,17 +88,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class=" sb-sidenav-menu">
                         <div class="nav sticky-top">
-                            <a class="nav-link" href="index.php">
+                        <a class="nav-link" href="admin_page.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Books & Clubs
                             </a>
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="create_book.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Create Book
                             </a>
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="create_club.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Create Club
+                            </a>
+                            <a class="nav-link" href="index.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Back to home
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
@@ -115,37 +119,52 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </nav>
             </div>
             <div>
-            <main>
-            <div class="container mx-auto">
-                <h2 class="mt-3 text-center">Edit Book</h2>
-                <form method="post">
-                    <!-- Book Title Input -->
-                    <div class="mb-3">
-                        <label for="bookTitle" class="form-label">Book Title</label>
-                        <input type="text" class="form-control" id="bookTitle" name="book_title" value="<?php echo htmlspecialchars($book_title); ?>" required>
+                <main class="vh-100">
+                    <!-- Form for editing books -->
+                    <div class="container mx-auto">
+                        <h2 class="mt-3 text-center">Edit Book</h2>
+                        <form method="post">
+                            <!-- Book Title Input -->
+                            <div class="mb-3">
+                                <label for="bookTitle" class="form-label">Book Title</label>
+                                <input type="text" class="form-control" id="bookTitle" name="book_title" value="<?php echo htmlspecialchars($book_title); ?>" required>
+                            </div>
+                            <!-- Author Input -->
+                            <div class="mb-3">
+                                <label for="bookAuthor" class="form-label">Author</label>
+                                <input type="text" class="form-control" id="bookAuthor" name="book_author" value="<?php echo htmlspecialchars($book_author); ?>" required>
+                            </div>
+                            <!-- Year Input -->
+                            <div class="mb-3">
+                                <label for="yearPublished" class="form-label">Year</label>
+                                <input type="number" class="form-control" id="yearPublished" name="book_year" min="1000" max="2099" value="<?php echo htmlspecialchars($book_year); ?>" required>
+                            </div>
+                            <!-- Description Input -->
+                            <div class="mb-3">
+                                <label for="bookDescription" class="form-label">Description</label>
+                                <textarea class="form-control" id="bookDescription" name="book_description" rows="3" required><?php echo htmlspecialchars($book_description); ?></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
                     </div>
-                    <!-- Author Input -->
-                    <div class="mb-3">
-                        <label for="bookAuthor" class="form-label">Author</label>
-                        <input type="text" class="form-control" id="bookAuthor" name="book_author" value="<?php echo htmlspecialchars($book_author); ?>" required>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Alanna Evans, Chris King, Cody King, Tyler White - 2024</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
                     </div>
-                    <!-- Year Input -->
-                    <div class="mb-3">
-                        <label for="yearPublished" class="form-label">Year</label>
-                        <input type="number" class="form-control" id="yearPublished" name="book_year" min="1000" max="2099" value="<?php echo htmlspecialchars($book_year); ?>" required>
-                    </div>
-                    <!-- Description Input -->
-                    <div class="mb-3">
-                        <label for="bookDescription" class="form-label">Description</label>
-                        <textarea class="form-control" id="bookDescription" name="book_description" rows="3" required><?php echo htmlspecialchars($book_description); ?></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
+                </footer>
             </div>
-        </main>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-</body>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="bootstrap_resources/js/scripts.js"></script>
+    </body>
 </html>

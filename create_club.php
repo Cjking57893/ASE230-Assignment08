@@ -52,17 +52,21 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class=" sb-sidenav-menu">
                         <div class="nav sticky-top">
-                            <a class="nav-link" href="index.php">
+                        <a class="nav-link" href="admin_page.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Books & Clubs
                             </a>
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="create_book.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Create Book
                             </a>
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="create_club.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Create Club
+                            </a>
+                            <a class="nav-link" href="index.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Back to home
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
@@ -79,7 +83,7 @@
                 </nav>
             </div>
             <div>
-                <main>
+                <main class="vh-100">
                     <!-- Form for creating clubs -->
                     <div class="container mx-auto">
                         <h2 class="mt-3 text-center">Create Club</h2>

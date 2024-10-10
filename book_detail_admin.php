@@ -1,18 +1,5 @@
 <?php 
     include 'lib\admin_functions\file_reading_functions_admin.php';
-    include 'lib\admin_functions\file_writing_functions_admin.php';
-    include 'lib\admin_functions\file_creating_functions.php';
-
-    // Check if the form was submitted
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        // Get the form data
-        $book_title = $_POST['book_title'];
-        $book_author = $_POST['book_author'];
-        $book_year = $_POST['book_year'];
-        $book_description = $_POST['book_description'];
-
-        create_book($book_title, $book_author, $book_year, $book_description);
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Create Book</title>
+        <title><?= $_GET['title'] ?></title>
         <link href="bootstrap_resources/css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
@@ -84,36 +71,14 @@
                 </nav>
             </div>
             <div>
-                <main class="vh-100">
-                    <!-- Form for creating books -->
-                    <div class="container mx-auto">
-                        <h2 class="mt-3 text-center">Create Book</h2>
-                        <form method="post">
-                            <!-- Book Title Input -->
-                            <div class="mb-3">
-                                <label for="bookTitle" class="form-label">Book Title</label>
-                                <input type="text" class="form-control" id="bookTitle" name="book_title" placeholder="Enter the book title">
-                            </div>
-                            <!-- Author Input -->
-                            <div class="mb-3">
-                                <label for="bookAuthor" class="form-label">Author</label>
-                                <input type="text" class="form-control" id="bookAuthor" name="book_author" placeholder="Enter the author">
-                            </div>
-                            <!-- Year Input -->
-                            <div class="mb-3">
-                                <label for="yearPublished" class="form-label">Year</label>
-                                <input type="number" class="form-control" id="yearPublished" name="book_year" min="1000" max="2099" value="2024" step="1">
-                            </div>
-                            <!-- Description Input -->
-                            <div class="mb-3">
-                                <label for="bookDescription" class="form-label">Description</label>
-                                <textarea class="form-control" id="bookDescription" name="book_description" rows="3" placeholder="Write a short description"></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </div>
-                        </form>
-                    </div>
+                <main>
+                    <?php 
+                        read_book_details_admin('data/book_list.json', $_GET['title']);
+                        
+                    ?>
+                    <button class="mt-2 ms-2 btn btn-dark" onclick="location.href='admin_page.php'">Back to Admin Page</button>
+                    <div style="height: 100vh"></div>
+                    
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
@@ -129,7 +94,3 @@
                 </footer>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="bootstrap_resources/js/scripts.js"></script>
-    </body>
-</html>
