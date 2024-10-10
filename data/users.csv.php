@@ -9,3 +9,4 @@ tylerwhite@gmail.com;Tyler;White;example@gmail.com;$2y$10$TTWiLZBe/Am.vsEKl2so2e
 example;Tyler;White;exxample@gmail.com;$2y$10$oaVHhG.ddHIt1lHh68u4K.RWniSv5.B1B8u6xy2jqUUVMvXyulLmK
 examplee;Tyler;White;examplee@gmail.com;$2y$10$NcIrYRwvxekQfIeqP867V.E.RhJjRofgCSw/4BRuR2JxVvDBMzJQS
 exampleee;Tyler;White;eggsample@gmail.com;$2y$10$U1rUB5GR5eDB7FRLjlVRmutnQOJVJygUywgVy8TYkk.EZ0tcPrBiq
+alanna;alanna;evans;123@gmail.com;$2y$10$/MaxLTZE4cEPFySHBFb.Iu82sYvcfGMy4ih/slqR7VYrh7ejvZ3xW
