@@ -1,4 +1,5 @@
 <?php 
+    require_once('lib/functions.php');
     include 'lib\file_reading_functions.php';
     include 'lib\file_writing_functions.php';
 ?>
@@ -17,7 +18,7 @@
     <body>
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">BookBound</a>
+            <a class="navbar-brand ps-3" href="index.php">BookBound</a>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <!--acts as a spacer for the sign in/sign out menu-->
@@ -29,9 +30,10 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
+                        <li><a class="dropdown-item" href="login.php">Sign in</a></li>
+                        <li><a class="dropdown-item" href="register.php">Sign up</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                        <li><a class="dropdown-item" href="lib/signout.php">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -69,8 +71,16 @@
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Username
+                        <?php
+                            if(isset($_SESSION['username'])){
+                                echo "<div class=\"small\">Logged in as:</div>
+                                $_SESSION[username]";
+                            }
+                            else{
+                                echo "<div class=\"small\">You are not logged in</div>";
+                            }
+                        ?>
+                        
                     </div>
                 </nav>
             </div>
@@ -85,13 +95,14 @@
                               </tr>
                             </thead>
                             <tbody>
+                            
                                 <?php 
                                     read_book_list('data/book_list.json');
-                                    //check if user clicks button to add a book to their list, and call funciton to add it to the list
-                                    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['book_title'])) {
+                                    //check if user clicks button, and if they are signed in, to add a book to their list, and call funciton to add it to the list
+                                    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['book_title']) && isset($_SESSION['username'])) {
                                         $book_title = $_POST['book_title'];
                                         $read_path = 'data/book_list.json'; // Path to book list
-                                        $write_path = 'data/users_book_list.json'; // Path to user's book list
+                                        $write_path = "data/$_SESSION[username]_book_list.json"; // Path to user's book list, uses username to create file
                                 
                                         // Call the function to write the book to the user's list
                                         write_book_to_user_list($read_path, $write_path, $book_title);
@@ -107,11 +118,11 @@
                         <div class="row ">
                             <?php
                                 read_club_list('data/book_club_list.json');
-                                //check if user clicks button to join club, and call funciton to add it to the list
-                                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['club_name'])) {
+                                //check if user clicks button to join club and that user is signed in, and call funciton to add it to the list 
+                                if  ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['club_name']) && isset($_SESSION['username'])) {
                                     $name = $_POST['club_name'];
                                     $read_path = 'data/book_club_list.json'; // Path to book list
-                                    $write_path = 'data/users_club_list.json'; // Path to user's book list
+                                    $write_path = "data/$_SESSION[username]_clubs_list.json"; // Path to user's book list, uses username to create file
                             
                                     // Call the function to write the book to the user's list
                                     write_club_to_user_list($read_path, $write_path, $name);

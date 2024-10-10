@@ -50,10 +50,6 @@
                                 <form method=\"post\">
                                     <input type=\"hidden\" name=\"book_title\" value=\"" . htmlspecialchars($book['title']) . "\">
                                     <input class=\"ms-2 btn btn-dark\" type=\"submit\" value=\"+ Add To My List\">
-                                </form>
-                                <form method=\"post\">
-                                    <input type=\"hidden\" name=\"book_remove\" value=\"" . htmlspecialchars($book['title']) . "\">
-                                    <input class=\"ms-2 mt-2 btn btn-dark\" type=\"submit\" value=\"Remove From My List\">
                                 </form>";
                         break;
                     }
