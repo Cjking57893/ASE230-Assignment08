@@ -93,6 +93,9 @@
                                 <label for="bookDescription" class="form-label">Description</label>
                                 <textarea class="form-control" id="bookDescription" rows="3" placeholder="Write a short description"></textarea>
                             </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
                         </form>
                     </div>
                 </main>
