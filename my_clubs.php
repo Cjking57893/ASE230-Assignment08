@@ -92,9 +92,9 @@
                         //check if user clicks button to join club, and call funciton to add it to the list
                         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['club_remove'])) {
                             $club_title = $_POST['club_remove'];
-                            $write_path = "data/$_SESSION[username]_clubs_list.json"; // Path to user's book list
+                            $write_path = "data/$_SESSION[username]_clubs_list.json"; // Path to user's club list
                     
-                            // Call the function to write the book to the user's list
+                            // Call the function to write the club to the user's list
                             delete_club_from_user_list($write_path, $club_title);
                         }
                     ?>
