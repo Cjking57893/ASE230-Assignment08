@@ -1,1 +1,14 @@
-[]
+[
+    {
+        "title": "The Old Man and the Sea",
+        "author": "Ernest Hemingway",
+        "year": "1952",
+        "description": "A short novel that tells the story of an aging fisherman who struggles with a giant marlin far out in the Gulf Stream."
+    },
+    {
+        "title": "The Alchemist",
+        "author": "Paulo Coelho",
+        "year": "1988",
+        "description": "A philosophical tale about a shepherd named Santiago who dreams of discovering a treasure hidden near the Egyptian pyramids."
+    }
+]
