@@ -166,5 +166,11 @@
         "author": "Khaled Hosseini",
         "year": 2003,
         "description": "A poignant tale of friendship and redemption set against the backdrop of a changing Afghanistan."
+    },
+    {
+        "title": null,
+        "author": null,
+        "year": 0,
+        "description": null
     }
 ]

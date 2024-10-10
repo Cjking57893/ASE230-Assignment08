@@ -1,6 +1,17 @@
 <?php 
     include 'lib\admin_functions\file_reading_functions_admin.php';
     include 'lib\admin_functions\file_writing_functions_admin.php';
+    include 'lib\admin_functions\file_creating_functions.php';
+
+    // Check if the form was submitted
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // Get the form data
+        $club_name = $_POST['club_name'];
+        $club_leader = $_POST['club_leader'];
+        $club_description = $_POST['club_description'];
+
+        create_club($club_name, $club_leader, $club_description);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,21 +83,21 @@
                     <!-- Form for creating clubs -->
                     <div class="container mx-auto">
                         <h2 class="mt-3 text-center">Create Club</h2>
-                        <form>
+                        <form method="post">
                             <!-- Club Name Input -->
                             <div class="mb-3">
                                 <label for="clubName" class="form-label">Club Name</label>
-                                <input type="text" class="form-control" id="clubName" placeholder="Enter the club name">
+                                <input type="text" class="form-control" id="clubName" name="club_name" placeholder="Enter the club name">
                             </div>
                             <!-- Leader Input -->
                             <div class="mb-3">
                                 <label for="clubLeader" class="form-label">Leader</label>
-                                <input type="text" class="form-control" id="clubLeader" placeholder="Enter the leader">
+                                <input type="text" class="form-control" id="clubLeader" name="club_leader" placeholder="Enter the leader">
                             </div>
                             <!-- Description Input -->
                             <div class="mb-3">
                                 <label for="clubDescription" class="form-label">Description</label>
-                                <textarea class="form-control" id="clubDescription" rows="3" placeholder="Write a short description"></textarea>
+                                <textarea class="form-control" id="clubDescription" name="club_description" rows="3" placeholder="Write a short description"></textarea>
                             </div>
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-primary">Submit</button>
