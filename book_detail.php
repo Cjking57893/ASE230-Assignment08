@@ -91,7 +91,7 @@
                         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['book_title'])) {
                             $book_title = $_POST['book_title'];
                             $read_path = 'data/book_list.json'; // Path to book list
-                            $write_path = 'data/users_book_list.json'; // Path to user's book list
+                            $write_path = data/$_SESSION[username]_book_list.json; // Path to user's book list
                     
                             // Call the function to write the book to the user's list
                             write_book_to_user_list($read_path, $write_path, $book_title);
