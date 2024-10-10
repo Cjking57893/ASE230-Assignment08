@@ -1,6 +1,18 @@
 <?php 
     include 'lib\admin_functions\file_reading_functions_admin.php';
     include 'lib\admin_functions\file_writing_functions_admin.php';
+    include 'lib\admin_functions\file_creating_functions.php';
+
+    // Check if the form was submitted
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // Get the form data
+        $book_title = $_POST['book_title'];
+        $book_author = $_POST['book_author'];
+        $book_year = $_POST['book_year'];
+        $book_description = $_POST['book_description'];
+
+        create_book($book_title, $book_author, $book_year, $book_description);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,26 +84,26 @@
                     <!-- Form for creating books -->
                     <div class="container mx-auto">
                         <h2 class="mt-3 text-center">Create Book</h2>
-                        <form>
+                        <form method="post">
                             <!-- Book Title Input -->
                             <div class="mb-3">
                                 <label for="bookTitle" class="form-label">Book Title</label>
-                                <input type="text" class="form-control" id="bookTitle" placeholder="Enter the book title">
+                                <input type="text" class="form-control" id="bookTitle" name="book_title" placeholder="Enter the book title">
                             </div>
                             <!-- Author Input -->
                             <div class="mb-3">
                                 <label for="bookAuthor" class="form-label">Author</label>
-                                <input type="text" class="form-control" id="bookAuthor" placeholder="Enter the author">
+                                <input type="text" class="form-control" id="bookAuthor" name="book_author" placeholder="Enter the author">
                             </div>
                             <!-- Year Input -->
                             <div class="mb-3">
                                 <label for="yearPublished" class="form-label">Year</label>
-                                <input type="number" class="form-control" id="yearPublished" min="1000" max="2099" value="2024" step="1">
+                                <input type="number" class="form-control" id="yearPublished" name="book_year" min="1000" max="2099" value="2024" step="1">
                             </div>
                             <!-- Description Input -->
                             <div class="mb-3">
                                 <label for="bookDescription" class="form-label">Description</label>
-                                <textarea class="form-control" id="bookDescription" rows="3" placeholder="Write a short description"></textarea>
+                                <textarea class="form-control" id="bookDescription" name="book_description" rows="3" placeholder="Write a short description"></textarea>
                             </div>
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-primary">Submit</button>
