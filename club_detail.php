@@ -75,8 +75,27 @@
             </div>
             <div>
                 <main>
-                
+                    <?php
+                        read_club_list('data/book_list.json', $_GET['title']);
+                        //check if button is pressed, adds item to the user's list
+                        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['club_title'])) {
+                            $club_title = $_POST['club_title'];
+                            $read_path = 'data/book_club_list.json'; // Path to book list
+                            $write_path = 'data/users_club_list.json'; // Path to user's book list
                     
+                            // Call the function to write the book to the user's list
+                            write_club_to_user_list($read_path, $write_path, $book_title);
+                        }
+                        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['club_remove'])) {
+                            $club_title = $_POST['club_remove'];
+                            $write_path = 'data/users_club_list.json'; // Path to user's book list
+                    
+                            // Call the function to write the book to the user's list
+                            delete_book_from_user_list($write_path, $book_title);
+                        }
+                        
+
+                     ?>  
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">

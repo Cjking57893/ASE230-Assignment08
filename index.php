@@ -1,6 +1,7 @@
 <?php 
     include 'lib\file_reading_functions.php';
     include 'lib\file_writing_functions.php';
+    require_once('lib\functions.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +30,8 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
+                        <li><a class="dropdown-item" href="login.php">Login</a></li>
+                        <li><a class="dropdown-item" href="register.php">Sign Up</a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" href="#!">Logout</a></li>
                     </ul>
@@ -52,12 +54,12 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="">My Books</a>
-                                    <a class="nav-link" href="">My Clubs</a>
+                                    <a class="nav-link" href="my_books.php">My Books</a>
+                                    <a class="nav-link" href="my_clubs.php">My Clubs</a>
                                 </nav>
                             </div>
                             
-                            <a class="nav-link mt-3" href="">
+                            <a class="nav-link mt-3" href="account_info.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Account Info
                             </a>
