@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Create Book</title>
+        <title>Create Club</title>
         <link href="bootstrap_resources/css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
@@ -69,29 +69,24 @@
             </div>
             <div>
                 <main>
-                    <!-- Form for creating books -->
+                    <!-- Form for creating clubs -->
                     <div class="container mx-auto">
-                        <h2 class="mt-3 text-center">Create Book</h2>
+                        <h2 class="mt-3 text-center">Create Club</h2>
                         <form>
-                            <!-- Book Title Input -->
+                            <!-- Club Name Input -->
                             <div class="mb-3">
-                                <label for="bookTitle" class="form-label">Book Title</label>
-                                <input type="text" class="form-control" id="bookTitle" placeholder="Enter the book title">
+                                <label for="clubName" class="form-label">Club Name</label>
+                                <input type="text" class="form-control" id="clubName" placeholder="Enter the club name">
                             </div>
-                            <!-- Author Input -->
+                            <!-- Leader Input -->
                             <div class="mb-3">
-                                <label for="bookAuthor" class="form-label">Author</label>
-                                <input type="text" class="form-control" id="bookAuthor" placeholder="Enter the author">
-                            </div>
-                            <!-- Year Input -->
-                            <div class="mb-3">
-                                <label for="yearPublished" class="form-label">Year</label>
-                                <input type="number" class="form-control" id="yearPublished" min="1000" max="2099" value="2024" step="1">
+                                <label for="clubLeader" class="form-label">Leader</label>
+                                <input type="text" class="form-control" id="clubLeader" placeholder="Enter the leader">
                             </div>
                             <!-- Description Input -->
                             <div class="mb-3">
-                                <label for="bookDescription" class="form-label">Description</label>
-                                <textarea class="form-control" id="bookDescription" rows="3" placeholder="Write a short description"></textarea>
+                                <label for="clubDescription" class="form-label">Description</label>
+                                <textarea class="form-control" id="clubDescription" rows="3" placeholder="Write a short description"></textarea>
                             </div>
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-primary">Submit</button>

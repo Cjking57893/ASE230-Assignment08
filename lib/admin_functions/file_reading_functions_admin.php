@@ -21,8 +21,8 @@ function read_book_list_admin($file_path): void{
                         <td class=\"align-middle\">
                             <form method=\"post\">
                                 <input type=\"hidden\" name=\"book_title\" value=\"" . htmlspecialchars($book['title']) . "\">
-                                <input class=\"btn btn-secondary\" type=\"submit\" value=\"Edit\">
-                                <input class=\"btn btn-danger\" type=\"submit\" value=\"Delete\">
+                                <input class=\"btn btn-secondary\" name=\"edit\" type=\"submit\" value=\"Edit\">
+                                <input class=\"btn btn-danger\" name=\"delete\" type=\"submit\" value=\"Delete\">
                             </form>
                         </td>        
                     </tr>
@@ -56,7 +56,7 @@ function read_club_list_admin($file_path){
                                         <input class=\"btn btn-secondary\" type=\"submit\" value=\"Edit\">
                                     </form>
                                     <form method=\"post\">
-                                        <input type=\"hidden\" name=\"\" value=\"\">
+                                        <input type=\"hidden\" name=\"club_name\" value=\"" . htmlspecialchars($club['name']) . "\">
                                         <input class=\"mt-2 btn btn-danger\" type=\"submit\" value=\"Delete\">
                                     </form>
                                 </div>

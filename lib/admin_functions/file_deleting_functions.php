@@ -2,7 +2,7 @@
 
 function delete_book($book_title) {
     // Reading the JSON file
-    $filePath = '../../data/book_list.json';
+    $filePath = 'data/book_list.json';
     $jsonData = file_get_contents($filePath);
 
     // Decoding JSON file into PHP array
@@ -32,7 +32,7 @@ function delete_book($book_title) {
 
 function delete_club($club_name) {
     // Reading the JSON file
-    $filePath = '../../data/book_club_list.json';
+    $filePath = 'data/book_club_list.json';
     $jsonData = file_get_contents($filePath);
 
     // Decoding JSON file into PHP array

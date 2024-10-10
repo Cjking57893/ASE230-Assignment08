@@ -1,6 +1,29 @@
 <?php 
     include 'lib\admin_functions\file_reading_functions_admin.php';
     include 'lib\admin_functions\file_writing_functions_admin.php';
+    include './lib/admin_functions/file_deleting_functions.php';
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Handling book deletion
+        if (isset($_POST['book_title'])) {
+            $book_title = $_POST['book_title'];
+            delete_book($book_title); // Call the book delete function
+
+            // After deleting, reload the page
+            header("Location: " . $_SERVER['PHP_SELF']);
+            exit;
+        }
+
+        // Handling club deletion
+        if (isset($_POST['club_name'])) {
+            $club_name = $_POST['club_name'];
+            delete_club($club_name); // Call the club delete function
+
+            // After deleting, reload the page
+            header("Location: " . $_SERVER['PHP_SELF']);
+            exit;
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
